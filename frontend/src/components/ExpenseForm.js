@@ -1,23 +1,21 @@
 import React, { useState } from 'react';
 import './ExpenseForm.css';
 
-function ExpenseForm({ categories, onAddExpense, currencySymbols = {} }) {
+function ExpenseForm({ categories, onAddExpense, currencySymbols = {}, selectedCurrency = 'USD', onCurrencyChange }) {
   const [formData, setFormData] = useState({
     amount: '',
     category: categories[0] || 'Food',
     description: '',
     date: new Date().toISOString().split('T')[0],
   });
-  const [selectedCurrency, setSelectedCurrency] = useState('USD');
+  // currency is driven by global selection from IncomeForm
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
   const [submitting, setSubmitting] = useState(false);
 
-  const currencyCodes = Object.keys(currencySymbols).length > 0 
-    ? Object.keys(currencySymbols)
-    : ['USD'];
-  
   const currencySymbol = currencySymbols[selectedCurrency] || '$';
+
+  const currencyCodes = Object.keys(currencySymbols).sort();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -54,7 +52,7 @@ function ExpenseForm({ categories, onAddExpense, currencySymbols = {} }) {
       return;
     }
 
-    const result = await onAddExpense({
+      const result = await onAddExpense({
       amount: parseFloat(formData.amount),
       category: formData.category,
       description: formData.description.trim(),
@@ -83,20 +81,27 @@ function ExpenseForm({ categories, onAddExpense, currencySymbols = {} }) {
     <div className="expense-form-card">
       <h2>Add New Expense</h2>
       
+      {/* Currency selection */}
       <div className="form-currency-selector">
-        <label htmlFor="form-currency">Currency:</label>
-        <select 
-          id="form-currency"
-          value={selectedCurrency}
-          onChange={(e) => setSelectedCurrency(e.target.value)}
-          className="currency-dropdown-form"
-        >
-          {currencyCodes.map((code) => (
-            <option key={code} value={code}>
-              {code} ({currencySymbols[code]})
-            </option>
-          ))}
-        </select>
+        <label htmlFor="form-currency-select">Currency:</label>
+        {onCurrencyChange ? (
+          <select 
+            id="form-currency-select"
+            value={selectedCurrency} 
+            onChange={(e) => onCurrencyChange(e.target.value)}
+            className="form-currency-dropdown"
+          >
+            {currencyCodes.map((code) => (
+              <option key={code} value={code}>
+                {code} ({currencySymbols[code]})
+              </option>
+            ))}
+          </select>
+        ) : (
+          <div style={{ padding: '6px 10px', borderRadius: 6, border: '1px solid var(--color-border)', background: 'var(--color-bg)' }}>
+            {selectedCurrency} ({currencySymbols[selectedCurrency]})
+          </div>
+        )}
       </div>
       
       <form onSubmit={handleSubmit}>

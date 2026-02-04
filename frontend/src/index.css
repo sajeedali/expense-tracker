@@ -51,18 +51,18 @@ code {
 }
 
 .dark-mode {
-  --color-bg: #0f0f1e;
-  --color-bg-card: #1a1a2e;
-  --color-text: #f0f0ff;
-  --color-text-muted: #9ca3af;
-  --color-primary: #a78bfa;
-  --color-primary-dark: #c4b5fd;
-  --color-primary-soft: #5b21b6;
-  --color-danger: #f97373;
-  --color-danger-dark: #ef4444;
-  --color-success: #22c55e;
-  --color-border-subtle: #6b21b6;
-  --shadow-soft: 0 10px 30px rgba(124, 58, 237, 0.3);
+  --color-bg: #0a0e27;
+  --color-bg-card: #1a1f3a;
+  --color-text: #e8eaf6;
+  --color-text-muted: #9fa8da;
+  --color-primary: #b39ddb;
+  --color-primary-dark: #9575cd;
+  --color-primary-soft: #4527a0;
+  --color-danger: #ef5350;
+  --color-danger-dark: #e53935;
+  --color-success: #66bb6a;
+  --color-border-subtle: #512da8;
+  --shadow-soft: 0 10px 30px rgba(124, 58, 237, 0.4);
 }
 
 .app-header-actions {

@@ -23,6 +23,7 @@ function App() {
   const [filterCategory, setFilterCategory] = useState('All');
   const [error, setError] = useState(null);
   const [theme, setTheme] = useState('light');
+  const [selectedCurrency, setSelectedCurrency] = useState('USD');
 
   const currencySymbols = {
     'USD': '$',
@@ -159,7 +160,6 @@ function App() {
       return { success: false, error: err.message };
     }
   };
-
   const handleFilterChange = (category) => {
     setFilterCategory(category);
   };
@@ -200,6 +200,8 @@ function App() {
             categories={categories}
             onAddExpense={handleAddExpense}
             currencySymbols={currencySymbols}
+            selectedCurrency={selectedCurrency}
+            onCurrencyChange={setSelectedCurrency}
           />
         </div>
 
@@ -207,6 +209,10 @@ function App() {
           <Statistics 
             expenses={expenses}
             currencySymbols={currencySymbols}
+            updateStatistics={updateStatistics}
+            selectedCurrency={selectedCurrency}
+            onCurrencyChange={setSelectedCurrency}
+          />
             updateStatistics={updateStatistics}
           />
           
