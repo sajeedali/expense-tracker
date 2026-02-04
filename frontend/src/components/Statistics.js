@@ -74,7 +74,6 @@ function Statistics({ expenses = [], currencySymbols = {}, updateStatistics, sel
     
     return byMonth.map((month) => {
       const monthDate = new Date(month.month + ' 1');
-      const monthStr = monthDate.toISOString().slice(0, 7);
       
       const pieData = [
         { name: 'Expenses', value: month.total, color: '#ef4444' }
