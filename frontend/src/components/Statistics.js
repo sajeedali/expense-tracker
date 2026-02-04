@@ -73,7 +73,6 @@ function Statistics({ expenses = [], currencySymbols = {}, updateStatistics, sel
     if (!byMonth || byMonth.length === 0) return [];
     
     return byMonth.map((month) => {
-      const monthDate = new Date(month.month + ' 1');
       
       const pieData = [
         { name: 'Expenses', value: month.total, color: '#ef4444' }
