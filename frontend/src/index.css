@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+:root {
+  --color-bg: #f8f6ff;
+  --color-bg-card: #ffffff;
+  --color-text: #1a1a2e;
+  --color-text-muted: #6b7280;
+  --color-primary: #7c3aed;
+  --color-primary-dark: #6d28d9;
+  --color-primary-soft: #ede9fe;
+  --color-danger: #ef4444;
+  --color-danger-dark: #b91c1c;
+  --color-success: #10b981;
+  --color-border-subtle: #e9d5ff;
+  --shadow-soft: 0 10px 25px rgba(124, 58, 237, 0.1);
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.dark-mode {
+  --color-bg: #0f0f1e;
+  --color-bg-card: #1a1a2e;
+  --color-text: #f0f0ff;
+  --color-text-muted: #9ca3af;
+  --color-primary: #a78bfa;
+  --color-primary-dark: #c4b5fd;
+  --color-primary-soft: #5b21b6;
+  --color-danger: #f97373;
+  --color-danger-dark: #ef4444;
+  --color-success: #22c55e;
+  --color-border-subtle: #6b21b6;
+  --shadow-soft: 0 10px 30px rgba(124, 58, 237, 0.3);
+}
+
+.app-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.app-header-username {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.9);
+}
