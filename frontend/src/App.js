@@ -214,7 +214,7 @@ function App() {
             onCurrencyChange={setSelectedCurrency}
           />
             updateStatistics={updateStatistics}
-          />
+          
           
           <Filter
             categories={categories}
